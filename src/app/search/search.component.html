@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+<h1>Need Music</h1>
+
+<p class="need">Use MySpotify App to find new music</p>
+<form>
+  <div class="form-group">
+    <input
+      class="w3-input"
+      type="text"
+      [(ngModel)]="searchStr"
+      placeholder="Search Artist"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+  <button
+    class="w3-btn w3-ripple w3-red"
+    type="submit"
+    (click)="searchMusic()"
+    name="submit"
+    value="submit"
+  >
+    Submit
+  </button>
+</form>
+<ng-container *ngIf="listOfMusic !== null">
+  <div *ngFor="let artist of listOfMusic">
+    <p class="artistname">Profile of {{ artist.name }}</p>
+    <p>Genres: {{ artist.genres }}</p>
+    <p>Followers: {{ artist.followers.total }}</p>
+    
+  </div>
+</ng-container>
